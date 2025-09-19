@@ -10,7 +10,7 @@ class TestMySolution(unittest.TestCase):
         self.assertEqual(two_sum([3, 2, 4], 6), [1, 2])
 
     def test_twos_innums(self):
-        '''неверный тип данных в nums'''
+        '''тест вывода ошибки : неверный тип данных в nums'''
         with self.assertRaises(ValueError):
             two_sum([1, 2, 3, '4'], 5)
         with self.assertRaises(ValueError):
@@ -19,7 +19,7 @@ class TestMySolution(unittest.TestCase):
             two_sum([1, 2, [3], 4.1], 5)
 
     def test_twos_nums(self):
-        '''неверный тип данных nums'''
+        '''тест вывода ошибки : неверный тип данных nums'''
         with self.assertRaises(ValueError):
       two_sum(1, 5)
         with self.assertRaises(ValueError):
@@ -28,7 +28,7 @@ class TestMySolution(unittest.TestCase):
       two_sum('1', 5)
 
     def test_twos_tar(self):
-        '''неверный тип данных target'''
+        '''тест вывода ошибки : неверный тип данных target'''
         with self.assertRaises(ValueError):
             two_sum([1, 2, 3, 4], [5])
         with self.assertRaises(ValueError):
@@ -37,7 +37,7 @@ class TestMySolution(unittest.TestCase):
             two_sum([1, 2, 3, 4], 5.0)
 
     def test_twos_kolnums(self):
-        '''недостаточно чисел в nums'''
+        '''тест вывода ошибки : недостаточно чисел в nums'''
         with self.assertRaises(ValueError):
             two_sum([1], 5)
         with self.assertRaises(ValueError):
@@ -46,5 +46,6 @@ class TestMySolution(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
 
 
