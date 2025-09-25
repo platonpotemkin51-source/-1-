@@ -3,6 +3,9 @@
 P3122
 
 Лабораторная № 1
+
 https://github.com/platonpotemkin51-source/-1-/tree/main/laba_1
+
 Лабораторная № 2
+
 https://github.com/platonpotemkin51-source/-1-/tree/main/laba_2
