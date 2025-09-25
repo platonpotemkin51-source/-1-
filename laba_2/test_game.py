@@ -1,16 +1,19 @@
 import unittest
 from python.laba_2.game import *
 
+
 class TestMySolutionG(unittest.TestCase):
+
     def test_perbor(self):
         self.assertEqual(perebor(5, [2, 3, 4, 5, 6, 7]), [5, 4])
         self.assertEqual(perebor(5, [-2, -1, 0, 1, 2, 3, 4, 5, 6, 7]), [5, 8])
         self.assertEqual(perebor(5, [-2, -1, 0, 1, 2, 3, 4]), None)
-        self.assertEqual(perebor(5, [6, 7,8 ,9]), None)
+        self.assertEqual(perebor(5, [6, 7, 8, 9]), None)
 
     def test_bitperebor(self):
         self.assertEqual(bitperebor(5, [2, 3, 4, 5, 6, 7]), [5, 2])
-        self.assertEqual(bitperebor(5, [-5, -4, -3, -1, 0, 1, 2, 3, 4, 5, 6]), [5, 4])
+        self.assertEqual(bitperebor(5, [-5, -4, -3, -1, 0, 1, 2, 3, 4, 5, 6]),
+                         [5, 4])
         self.assertEqual(bitperebor(5, [2, 3, 4]), None)
         self.assertEqual(bitperebor(5, [6, 7, 8, 9, 10]), None)
 
@@ -34,3 +37,6 @@ class TestMySolutionG(unittest.TestCase):
         with self.assertRaises(ValueError):
             vbr_1(1, 6, -2)
 
+
+if __name__ == '__main__':
+    unittest.main()
