@@ -17,3 +17,7 @@ https://github.com/platonpotemkin51-source/-1-/tree/main/laba_3_(gen_bin_tree)
 Лабораторная №4
 
 https://github.com/platonpotemkin51-source/-1-/tree/main/Laba_4/Laba_4
+
+Лабораторная №5
+
+https://github.com/platonpotemkin51-source/-1-/tree/main/laba_5
