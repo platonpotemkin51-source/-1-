@@ -67,4 +67,6 @@
 
     график:
 
+    https://github.com/platonpotemkin51-source/-1-/blob/main/laba_6/Figure_3.png
+
     
