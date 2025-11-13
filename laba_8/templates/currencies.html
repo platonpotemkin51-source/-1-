@@ -1,0 +1,56 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+
+    <div>
+        <a href="/">На главную</a>
+        {% if current_user %}
+            | <a href="/my-currencies">Мои валюты</a>
+            | <a href="/all-currencies">Все валюты</a>
+            | <a href="/logout">Выйти</a>
+        {% else %}
+            | <a href="/login">Вход</a>
+            | <a href="/register">Регистрация</a>
+        {% endif %}
+    </div>
+
+    <hr>
+
+    {% if currencies %}
+        {% for code, currency in currencies.items() %}
+            <div>
+                <strong>{{ currency.symbol }} {{ currency.name }} ({{ code }})</strong>
+                {% if currency.rate > 0 %}
+                    - {{ "%.2f"|format(currency.rate) }} ₽
+                {% else %}
+                    - Курс недоступен
+                {% endif %}
+
+                {# ПРОСТЫЕ КНОПКИ БЕЗ СЛОЖНОЙ ЛОГИКИ #}
+                {% if show_subscribe_buttons and current_user %}
+                    - <a href="/subscribe/{{ code }}">Подписаться</a>
+                {% endif %}
+
+                {% if show_unsubscribe_buttons %}
+                    - <a href="/unsubscribe/{{ code }}">Отписаться</a>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+    {% else %}
+        <p>Нет валют для отображения</p>
+        {% if title == "Мои валюты" %}
+            <p><a href="/all-currencies">Перейти ко всем валютам</a></p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>

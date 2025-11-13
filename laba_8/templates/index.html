@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>{{ title }}</title>
+  </head>
+
+  <body>
+    <h1>{{ title }}</h1>
+
+    <div>
+        {% if current_user %}
+            <p>Привет, {{ current_user.name }}!</p>
+            <a href="/my-currencies">Мои валюты</a> |
+            <a href="/all-currencies">Все валюты</a> |
+            <a href="/logout">Выйти</a>
+        {% else %}
+            <a href="/all-currencies">Все валюты</a> |
+            <a href="/login">Вход</a> |
+            <a href="/register">Регистрация</a>
+        {% endif %}
+    </div>
+
+    <hr>
+
+    {% if currencies %}
+        <h2>Курсы валют:</h2>
+        {% for code, currency in currencies.items() %}
+            <div>
+                <strong>{{ currency.symbol }} {{ currency.name }} ({{ code }})</strong>
+                {% if currency.rate > 0 %}
+                    - {{ "%.2f"|format(currency.rate) }} ₽
+                {% else %}
+                    - Курс недоступен
+                {% endif %}
+
+                {# ПРОСТЫЕ КНОПКИ БЕЗ ПРОВЕРКИ ПОДПИСКИ #}
+                {% if current_user %}
+                    {% if title == "Мои подписки" %}
+                        [<a href="/unsubscribe/{{ code }}">Отписаться</a>]
+                    {% else %}
+                        [<a href="/subscribe/{{ code }}">Подписаться</a>]
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endfor %}
+
+    {% else %}
+        <p>Нет валют для отображения</p>
+        {% if title == "Мои подписки" %}
+            <p>У вас нет подписок на валюты.</p>
+            <p><a href="/all-currencies">Посмотреть все валюты и подписаться</a></p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
