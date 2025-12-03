@@ -90,6 +90,39 @@ def solve_quadratic(a, b, c):
    ```
    Логи: `[CRITICAL] solve_quadratic raised ValueError: Оба коэффициента a и b равны нулю...`
 
+### Также был создан и настроен на запись в файл логгер 
+```logging.getLogger("currency")```python
+
+Передав его как аргумент с логируруемыми функциями получаем и запустив несколько раз функции сразными занчениями (чтобы осветить все варианты) получаем :
+
+в ```currency.log``` :
+```
+2025-12-03 10:58:15 - currency_file - INFO - Calling get_currencies_file_log(['USD', 'EUR', 'GBP'])
+2025-12-03 10:58:15 - currency_file - INFO - get_currencies_file_log returned {'USD': 77.4631, 'EUR': 89.8514, 'GBP': 102.6541}
+2025-12-03 11:53:27 - currency_file - INFO - Calling get_currencies_file_log(['USD', 'EUR', 'GBP', 'DFG'])
+2025-12-03 11:53:27 - currency_file - ERROR - get_currencies_file_log raised KeyError: "Валюта 'DFG' отсутствует в данных ЦБ"
+2025-12-03 19:04:15 - currency_file - INFO - Calling get_currencies_file_log(['USD', 'EUR', 'GBP', 'DFG'], 'https://www.google.com')
+2025-12-03 19:04:15 - currency_file - ERROR - get_currencies_file_log raised ValueError: Некорректный JSON в ответе: Expecting value: line 1 column 1 (char 0)
+2025-12-03 19:50:50 - currency_file - INFO - Calling solve_quadratic_log(1, -3, 2)
+2025-12-03 19:50:50 - currency_file - INFO - solve_quadratic_log returned [2.0, 1.0]
+2025-12-03 19:50:50 - currency_file - INFO - Calling solve_quadratic_log(1, 0, 1)
+2025-12-03 19:50:50 - currency_file - WARNING - solve_quadratic_log raised ValueError: Дискриминант отрицательный: D=-4
+2025-12-03 19:50:50 - currency_file - INFO - Calling solve_quadratic_log('abc', 1, 2)
+2025-12-03 19:50:50 - currency_file - ERROR - solve_quadratic_log raised TypeError: Коэффициент 'a' должен быть числом
+2025-12-03 19:50:50 - currency_file - INFO - Calling solve_quadratic_log(0, 0, 5)
+2025-12-03 19:50:50 - currency_file - CRITICAL - solve_quadratic_log raised ValueError: Оба коэффициента a и b равны нулю - уравнение вырождено
+```
+
+в консоли (только для ```solve_quadratic```) :
+```
+INFO:currency_file:solve_quadratic_log returned [2.0, 1.0]
+INFO:currency_file:Calling solve_quadratic_log(1, 0, 1)
+WARNING:currency_file:solve_quadratic_log raised ValueError: Дискриминант отрицательный: D=-4
+INFO:currency_file:Calling solve_quadratic_log('abc', 1, 2)
+ERROR:currency_file:solve_quadratic_log raised TypeError: Коэффициент 'a' должен быть числом
+INFO:currency_file:Calling solve_quadratic_log(0, 0, 5)
+CRITICAL:currency_file:solve_quadratic_log raised ValueError: Оба коэффициента a и b равны нулю - уравнение вырождено
+```
 ## 4. Тестирование системы
 
 ### Тесты декоратора (test_decor.py):
