@@ -33,3 +33,7 @@ https://github.com/platonpotemkin51-source/-1-/tree/main/laba_7/Python_laba_7
 Лабораторная №8
 
 https://github.com/platonpotemkin51-source/-1-/tree/main/laba_8/laba_8_on_condition
+
+Лабораторная №9
+
+https://github.com/platonpotemkin51-source/-1-/tree/main/laba_9
