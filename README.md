@@ -26,6 +26,10 @@ https://github.com/platonpotemkin51-source/-1-/tree/main/laba_5
 
 https://github.com/platonpotemkin51-source/-1-/tree/main/laba_6
 
+Лабораторная №7
+
+https://github.com/platonpotemkin51-source/-1-/tree/main/laba_7/Python_laba_7
+
 Лабораторная №8
 
 https://github.com/platonpotemkin51-source/-1-/tree/main/laba_8
