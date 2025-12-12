@@ -5,6 +5,7 @@ P3122
 **Задание по git**
 
 https://github.com/platonpotemkin51-source/-1-/blob/main/tasf_for_git/scratch.md
+
 ---
 **Лабораторная № 1**
 
