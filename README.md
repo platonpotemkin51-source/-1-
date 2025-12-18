@@ -42,3 +42,7 @@ https://github.com/platonpotemkin51-source/-1-/tree/main/laba_8/laba_8_on_condit
 **Лабораторная №9**
 
 https://github.com/platonpotemkin51-source/-1-/tree/main/laba_9
+
+**Лабораторная №10**
+
+https://github.com/platonpotemkin51-source/-1-/tree/main/laba_10
